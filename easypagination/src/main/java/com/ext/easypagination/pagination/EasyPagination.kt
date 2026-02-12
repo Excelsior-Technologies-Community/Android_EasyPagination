@@ -14,13 +14,14 @@ class EasyPagination {
 
     companion object {
 
-        fun <T> attach(
+        fun <T,A> attach(
             recyclerView: RecyclerView,
             swipeRefreshLayout: SwipeRefreshLayout? = null,
-            adapter: PagingDataAdapter<T>,
-            recyclerAdapter: RecyclerView.Adapter<*>,
+            adapter: A,
             onLoadPage: (page: Int) -> Unit
-        ): EasyPagingController<T> {
+        ): EasyPagingController<T>
+                where A : RecyclerView.Adapter<*>,
+                      A : PagingDataAdapter<T>{
 
             val parent = recyclerView.parent as ViewGroup
 
@@ -38,7 +39,7 @@ class EasyPagination {
                 controller.retry()
             }
 
-            val paginationAdapter = PaginationAdapter(recyclerAdapter, footerAdapter)
+            val paginationAdapter = PaginationAdapter(adapter, footerAdapter)
             recyclerView.adapter = paginationAdapter.adapter
 
             controller = EasyPagingController(

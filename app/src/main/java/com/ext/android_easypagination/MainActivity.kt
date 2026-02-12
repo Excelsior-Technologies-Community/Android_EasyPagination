@@ -36,10 +36,6 @@ class MainActivity : AppCompatActivity() {
 
             // Adapter must implement PagingDataAdapter<T>
             adapter = adapter,
-
-            // RecyclerView.Adapter for showing list
-            recyclerAdapter = adapter
-
         ) { page ->
 
             // Library will request page here

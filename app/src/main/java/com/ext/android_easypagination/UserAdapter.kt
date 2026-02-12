@@ -9,18 +9,17 @@ import com.ext.easypagination.pagination.PagingDataAdapter
 
 class UserAdapter :
     RecyclerView.Adapter<UserAdapter.UserViewHolder>(),
-    PagingDataAdapter<String> {
+    PagingDataAdapter<String>
+ {
 
     private val items = mutableListOf<String>()
 
-    // ✅ Replace items (page 1 / refresh)
     override fun setItems(items: List<String>) {
         this.items.clear()
         this.items.addAll(items)
         notifyDataSetChanged()
     }
 
-    // ✅ Append items (next pages)
     override fun addItems(items: List<String>) {
         this.items.addAll(items)
         notifyDataSetChanged()
@@ -38,7 +37,7 @@ class UserAdapter :
         holder.bind(items[position])
     }
 
-    class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class UserViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
         private val text: TextView = itemView.findViewById(R.id.txtItem)
 
