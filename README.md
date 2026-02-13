@@ -52,7 +52,7 @@ dependencyResolutionManagement {
 ### Add Dependency
 ```
 dependencies {
-	        implementation 'com.github.Excelsior-Technologies-Community:Android_GradientPresets:1.0.0'
+	        implementation 'com.github.Excelsior-Technologies-Community:Android_EasyPagination:1.0.0'
 	}
 ```
 
